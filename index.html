@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Influcio - Connecting Creators with Brands</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5a9f5 0%, #a56beb 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 900px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .left-panel {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 100%;
+            gap: 4px;
+        }
+
+        .image-item {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(165, 107, 235, 0.5);
+            z-index: 2;
+            background-image: url('https://i.imgur.com/undefined.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        .platform-logo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+            opacity: 0.8;
+        }
+
+        .image-1 {
+            background-image: url('https://images.pexels.com/photos/3493731/pexels-photo-3493731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .image-2 {
+            background-image: url('https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .image-3 {
+            background-image: url('https://images.pexels.com/photos/4144179/pexels-photo-4144179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .image-4 {
+            background-image: url('https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(245, 169, 245, 0.7) 0%, rgba(165, 107, 235, 0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .overlay h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .overlay p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .logo img {
+            width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .login-header {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .login-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .login-header p {
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 24px;
+            background-color: white;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3c4043;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-family: 'Google Sans', sans-serif;
+            letter-spacing: 0.25px;
+        }
+
+        .google-btn:hover {
+            background-color: #f8f9fa;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .google-btn img {
+            width: 74px;
+            height: 24px;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        .login-link {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+            color: #5f6368;
+        }
+
+        .login-link a {
+            color: #a56beb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .terms {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        .terms a {
+            color: #a56beb;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        .stats {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #5f6368;
+            font-weight: 500;
+            line-height: 1.5;
+            font-family: 'Dancing Script', cursive;
+            padding: 10px 20px;
+            background-color: rgba(165, 107, 235, 0.08);
+            border-radius: 20px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                width: 95%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .left-panel {
+                display: none;
+            }
+
+            .right-panel {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="image-grid">
+                <div class="image-item image-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="platform-logo">
+                </div>
+                <div class="image-item image-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="platform-logo">
+                </div>
+                <div class="image-item image-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="platform-logo">
+                </div>
+                <div class="image-item image-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X (Twitter)" class="platform-logo">
+                </div>
+            </div>
+            <div class="overlay">
+                <h2>Unlock Your Creative Potential</h2>
+                <p>Join our creator community to connect with premium brands, secure more commercial opportunities, and maximize your content monetization.</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="logo">
+                <img src="https://i.imgur.com/WYR3c9q.png" alt="Influcio Logo">
+            </div>
+            <div class="login-header">
+                <h1>Welcome to Influcio</h1>
+                <p>The ultimate platform for content creators</p>
+            </div>
+            <div class="stats">
+                The home of 1,780,000+ high engaging influencers, 200B+ brands internationally
+            </div>
+            <div class="login-form">
+                <button class="google-btn">
+                    <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Google logo">
+                    Sign up with Google
+                </button>
+                <div class="login-link">
+                    Already have an account? <a href="#">Log in</a>
+                </div>
+            </div>
+            <div class="terms">
+                By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Google Sign-In API integration would go here
+        document.querySelector('.google-btn').addEventListener('click', function() {
+            alert('Google Sign-In would be integrated here. This is just a demo.');
+            // In a real implementation, you would initialize and call the Google Sign-In API
+        });
+        
+        // Login link functionality
+        document.querySelector('.login-link a').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Login functionality would be implemented here.');
+        });
+
+        // Simple hover effect for the login button
+        const googleBtn = document.querySelector('.google-btn');
+        googleBtn.addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.02)';
+        });
+        
+        googleBtn.addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html> 
